@@ -48,41 +48,62 @@ const classes = [
 
 let teachersArray = JSON.parse(window.localStorage.getItem("teachers")) || []
 
+function sortedByName() {
+    const sortedArray = teachersArray.sort((a, b) => a.fullName.localeCompare(b.fullName))
+    renderTeachers(sortedArray, document.querySelector("#table_con"))
+}
+
 function renderTeachers(arr, list) {
     list.innerHTML = null
+
     arr.forEach(teacher => {
         let elTR = document.createElement("tr")
         elTR.className = "bg-white border-b even:bg-[#F5FAFF]"
         elTR.innerHTML = `
-         <th scope="row" class="font-medium ">
-                <div class="flex items-center gap-2">
-                    <img class="rounded ml-4 my-auto" width="24" height="24"
-                        src=${teacher.imgUrl} alt="">
-                    <p>${teacher.fullName}</p>
-                </div>
-            </th>
-            <td class="px-6 py-4 text-black">
-                <p>${subjects[teacher.subjectsSelect - 1].name}</p>
-            </td>
-            <td class="px-6 py-4 text-black">
-                <p>${classes[teacher.classclasses
-                    - 1].name}</p>
-            </td>
-            <td class="px-6 py-4">
-                ${teacher.email}
-            </td>
-            <td class="px-6 py-4">
-                ${genders[teacher.gender - 1].name}
-            </td>
-            <td class="px-6 py-4">
-                <div class="flex items-center gap-2">
-                    <p class="text-white rounded-md p-2 cursor-pointer bg-green-600">Update</p>
-                    <p class="text-white rounded-md p-2 cursor-pointer bg-red-600">Delete</p>
-                </div>
-            </td>
-    `
-    list.append(elTR)
+             <th scope="row" class="font-medium ">
+                    <div class="flex items-center gap-2">
+                        <img class="rounded ml-4 my-auto" width="24" height="24"
+                            src=${teacher.imgUrl} alt="">
+                        <p>${teacher.fullName}</p>
+                    </div>
+                </th>
+                <td class="px-6 py-4 text-black">
+                    <p>${subjects[teacher.subjectsSelect - 1].name}</p>
+                </td>
+                <td class="px-6 py-4 text-black">
+                    <p>${classes[teacher.classclasses
+                - 1].name}</p>
+                </td>
+                <td class="px-6 py-4">
+                    ${teacher.email}
+                </td>
+                <td class="px-6 py-4">
+                    ${genders[teacher.gender - 1].name}
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center gap-2">
+                        <p class="text-white rounded-md p-2 cursor-pointer bg-green-600">Update</p>
+                        <p class="text-white rounded-md p-2 cursor-pointer bg-red-600" onclick="deleteFn(${teacher.id})">Delete</p>
+                    </div>
+                </td>
+        `
+        list.append(elTR)
     });
 }
 
+function deleteFn(id){
+    const findArrayIndex = teachersArray.find(teacher => teacher.id == id)
+    teachersArray.splice(findArrayIndex, 1)
+    renderTeachers(teachersArray, document.querySelector("#table_con"))
+    window.localStorage.setItem("teachers", JSON.stringify(teachersArray))
+}
+
 renderTeachers(teachersArray, document.querySelector("#table_con"))
+
+
+let searchName = document.querySelector("#searchName")
+searchName.addEventListener('input', (e) => {
+    const searchValue = e.target.value.toLowerCase().trim()
+    const filteredArray = teachersArray.filter(teacher => teacher.fullName.toLowerCase().includes(searchValue) || teacher.email.toLowerCase().includes(searchValue))
+    renderTeachers(filteredArray, document.querySelector("#table_con"))
+})

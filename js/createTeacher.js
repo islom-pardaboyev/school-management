@@ -62,7 +62,7 @@ form.addEventListener('submit', (evt) => {
     evt.preventDefault()
 
     const teachersData = {
-        id: teachersArray.length ? teachersArray[teachersArray.length - 1].id + 1 : 1,
+        id: Date.now(),
         fullName: evt.target.fullName.value,
         email: evt.target.email.value,
         subjectsSelect: evt.target.subjectsSelect.value,

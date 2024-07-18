@@ -62,10 +62,10 @@
             </header>
             <div class="p-4 mt-[14px] bg-[#FCFAFA] w-full flex gap-4 items-center">
                 <img src="../images/search-icon.svg" alt="">
-                <input type="text" placeholder="Search for a student by name or email"
+                <input id="searchName" type="text" placeholder="Search for a student by name or email"
                     class="outline-none w-full bg-transparent placeholder:text-[#8A8A8A]">
                 <button
-                    class="leading-[17.36px] w-[150px] py-4 hover:opacity-70 transition-all font-semibold text-[14px] text-white rounded-md bg-[#509CDB]">Sort
+                    class="leading-[17.36px] w-[150px] py-4 hover:opacity-70 transition-all font-semibold text-[14px] text-white rounded-md bg-[#509CDB]" onclick="sortedByName()">Sort
                     By Name</button>
             </div>
             <div id="tableListCon" class="mt-[11px]">
