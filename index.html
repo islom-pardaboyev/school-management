@@ -1,0 +1,58 @@
+<!-- sign up page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Management | Sing Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <style type="text/tailwindcss">
+    @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+          *{
+              font-family: "Kumbh Sans", sans-serif;
+          }
+        }
+
+      </style>
+</head>
+
+<body class="bg-[#FCFAFA]">
+
+  <main class="flex items-center flex-col justify-center h-screen">
+    <h1 class="mt-[98px] leading-[44.65px] font-semibold text-[36px]">Welcome, Sign up</h1>
+    <form autocomplete="off" class="w-[512px] h-[494px] bg-white mt-[53px] px-[132px] pt-[72px] pb-[100px]">
+      <p class="text-center leading-[25px] text-[16px] font-medium text-[#667085] mb-[34px]">It is our great pleasure to
+        have you on board! </p>
+      <input name="login" required type="text"
+        class="p-[13px] leading-[17.36px] font-medium text-[14px] placeholder:text-[#8A8A8A] border border-[#A7A7A7] rounded-[4px] w-full mb-[14px]"
+        placeholder="Create Your Login">
+      <input name="password" required type="password"
+        class="p-[13px] leading-[17.36px] font-medium text-[14px] placeholder:text-[#8A8A8A] border border-[#A7A7A7] rounded-[4px] w-full mb-[20px]"
+        placeholder="Create Your Password">
+      <p class="flex flex-col items-center mb-[10px]">If you haven't a account yet. <a href="./html/login.html" class="underline decoration-blue-400 text-blue-400">Log In</a></p>
+      <button class="w-full p-[12px] leadig-[17.36px] rounded-md font-bold text-[14px] text-white bg-[#2D88D4]">Sign up</button>
+    </form>
+  </main>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="js/signup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+              content-visibility: auto;
+            }
+            *{
+                font-family: "Kumbh Sans", sans-serif;
+            }
+          }
+  
+        </style>
+</head>
+
+<body class="overflow-hidden">
+
+    <main class="flex gap-[38px]">
+        <div class="w-[28%] bg-[#152259]  h-screen overflow-y-auto">
+            <a href="../index.html"><img src="../images/logo.png" width="65" height="65" class="mx-auto mt-[26px]"
+                    alt=""></a>
+            <h1
+                class="leading-[17.36px] font-semibold pb-[27px] border-b border-[#BDBDBD] text-[14px] text-white text-center mt-[22px]">
+                Udemy Inter. school</h1>
+            <nav class="mx-[25px] flex flex-col mt-[15px] gap-2">
+                <a href="#" class="flex items-center gap-4 rounded-md text-white p-[16px]">
+                    <img src="../images/home-icon.svg" alt="">
+                    <p class="font-semibold text-[14px] leading-[17.36px]">Dashboard</p>
+                </a>
+                <a href="#" class="flex items-center gap-4 bg-[#509CDB] rounded-md text-white p-[16px]">
+                    <img src="../images/home-icon.svg" alt="">
+                    <p class="font-semibold text-[14px] leading-[17.36px]">Teachers</p>
+                </a>
+                <a href="#" class="flex items-center gap-4 rounded-md text-white p-[16px]">
+                    <img src="../images/home-icon.svg" alt="">
+                    <p class="font-semibold text-[14px] leading-[17.36px]">Students</p>
+                </a>
+                <a href="#" class="flex items-center gap-4 rounded-md text-white p-[16px]">
+                    <img src="../images/home-icon.svg" alt="">
+                    <p class="font-semibold text-[14px] leading-[17.36px]">Billing</p>
+                </a>
+            </nav>
+        </div>
+        <div class="w-full h-screen overflow-y-auto mr-[99px]">
+            <div class="flex items-center justify-end gap-[3px] mt-[19px]">
+                <img src="../images/notification.svg" alt="">
+                <p id="logOut" class="leading-[17.36px] font-semibold text-[14px] hover:bg-[#509CDB] hover:text-white transition-all cursor-pointer rounded-lg px-[35px] py-[11px]">Log out</p>
+            </div>
+            <form autocomplete="off" id="tableListCon" class="mt-[11px]">
+                <button
+                    class="leading-[17.36px] px-7 py-3 hover:opacity-70 transition-all font-semibold text-[14px] text-white rounded-md bg-[#509CDB]">Save</button>
+                <div class="flex mt-[24px] gap-[60px]">
+
+                    <div class="w-full flex flex-col gap-[36px]">
+                        <label class="flex flex-col gap-[5px]">
+                            <span>Full Name</span>
+                            <input name="fullName" required placeholder="Full Name"
+                                class="px-[10px] border border-gray-500 outline-none rounded-md py-3 w-full"
+                                type="text">
+                        </label>
+                        <label class="flex flex-col gap-[5px]">
+                            <span>Email Adresss</span>
+                            <input name="email" required placeholder="Full Name"
+                                class="px-[10px] border border-gray-500 outline-none rounded-md py-3 w-full"
+                                type="email">
+                        </label>
+                        <label class="flex flex-col gap-[5px]">
+                            <span>Subject</span>
+                            <select name="subjects"
+                                class="px-[10px] h-[50px] border border-gray-500 outline-none rounded-md py-3 w-full bg-transparent"
+                                id="subjectsSelect">
+                            </select>
+                        </label>
+                        <label class="flex flex-col gap-[5px]">
+                            <span>About</span>
+                            <textarea name="about"
+                                class="resize-none px-[10px] border border-gray-500 outline-none rounded-md py-3 w-full"
+                                rows="10" id=""></textarea>
+                        </label>
+                    </div>
+                    <div class="w-full flex flex-col gap-[36px]">
+                        <label class="flex flex-col gap-[5px]">
+                            <span>Class</span>
+                            <select name="class"
+                                class="px-[10px] h-[50px] border border-gray-500 outline-none rounded-md py-3 w-full bg-transparent"
+                                id="classes">
+                            </select>
+                        </label>
+                        <label class="flex flex-col gap-[5px]">
+                            <span>Gender</span>
+                            <select name="gender"
+                                class="px-[10px] h-[50px] border border-gray-500 outline-none rounded-md py-3 w-full bg-transparent"
+                                id="genders">
+                            </select>
+                        </label>
+                        <label class="flex flex-col gap-[5px]">
+                            <span>Age</span>
+                            <input name="age" required placeholder="Age"
+                                class="px-[10px] border border-gray-500 outline-none rounded-md py-3 w-full"
+                                type="number">
+                        </label>
+                        <label class="flex flex-col gap-[5px]">
+                            <p>Import Img</p>
+                            <input id="chooseIMg" type="file" hidden>
+                            <img src="" id="showImg" width="300" alt="">
+                        </label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="../js/createTeacher.js"></script>
+</body>
+
+</html>
